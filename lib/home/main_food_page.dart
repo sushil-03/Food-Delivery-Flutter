@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/home/food_page_body.dart';
 import 'package:food_delivery/utils/colors.dart';
+import 'package:food_delivery/utils/dimension.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
+import 'package:get/get.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);
@@ -14,12 +16,14 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
+    print(Get.context!.height);
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.only(
+                  left: Dimension.width20, right: Dimension.width20),
               margin: const EdgeInsets.only(top: 5, bottom: 15),
               child: Container(
                 child: Row(
@@ -39,19 +43,20 @@ class _MainFoodPageState extends State<MainFoodPage> {
                           ),
                           SmallText(
                             text: "Uttarkhand",
-                            color: Colors.black54,
+                            color: const Color.fromRGBO(0, 0, 0, 0.541),
                           ),
-                          Icon(Icons.arrow_drop_down)
+                          const Icon(Icons.arrow_drop_down)
                         ])
                       ],
                     ),
                     Center(
                       child: Container(
-                        width: 45,
-                        height: 45,
-                        child: const Icon(
+                        width: Dimension.width45,
+                        height: Dimension.height45,
+                        child: Icon(
                           Icons.search,
                           color: Colors.white,
+                          size: Dimension.iconSize24,
                         ),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
