@@ -56,7 +56,103 @@ class _FoodPageBody extends State<FoodPageBody> {
                 activeColor: AppColors.mainColor,
                 activeSize: Size(18, 9),
                 activeShape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(Dimension.radius20))))
+                    borderRadius: BorderRadius.circular(Dimension.radius20)))),
+        SizedBox(height: Dimension.height30),
+        Container(
+          margin: EdgeInsets.only(
+              left: Dimension.width30, bottom: Dimension.height20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              BigText(text: 'Popular'),
+              SizedBox(width: Dimension.width10),
+              Container(
+                margin: EdgeInsets.only(bottom: 3),
+                child: BigText(text: ".", color: Colors.black26),
+              ),
+              SizedBox(width: Dimension.width10),
+              Container(
+                margin: EdgeInsets.only(bottom: 2),
+                child: SmallText(text: "Food Pairing"),
+              ),
+            ],
+          ),
+        ),
+        ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                    left: Dimension.width20,
+                    right: Dimension.width20,
+                    bottom: Dimension.height10),
+                child: Row(
+                  children: [
+                    Container(
+                      width: Dimension.listViewImgSize,
+                      height: Dimension.listViewImgSize,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Dimension.radius20),
+                        color: Colors.white,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/image/food0.png"),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: Dimension.listViewTextContentSize,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(Dimension.radius30),
+                                bottomRight:
+                                    Radius.circular(Dimension.radius30)),
+                            color: Colors.white),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: Dimension.width10,
+                              right: Dimension.width10),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                BigText(
+                                    text: 'Sushil Momo Special Only In India'),
+                                SizedBox(height: Dimension.height10),
+                                SmallText(text: 'text yummmmmmmmmmmy'),
+                                SizedBox(height: Dimension.height10),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    IconAndText(
+                                      icon: Icons.circle_sharp,
+                                      text: "Normal",
+                                      iconColor: AppColors.iconColor1,
+                                    ),
+                                    IconAndText(
+                                      icon: Icons.location_on,
+                                      text: "1.7km",
+                                      iconColor: AppColors.mainColor,
+                                    ),
+                                    IconAndText(
+                                      icon: Icons.circle_sharp,
+                                      text: "32min",
+                                      iconColor: AppColors.iconColor2,
+                                    )
+                                  ],
+                                )
+                              ]),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            })
       ],
     );
   }
